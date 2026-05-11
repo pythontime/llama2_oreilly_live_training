@@ -3,3 +3,13 @@
 */models/*
 *.gguf
 *.key*
+/MEMORY
+.env
+.venv/
+oreilly-llama3/
+__pycache__/
+.ipynb_checkpoints/
+notebooks/storage/*
+lora_summary.txt
+recent_models.md
+lora_evolution.md

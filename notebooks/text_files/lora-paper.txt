@@ -8,11 +8,11 @@
                                           yuanzhil, swang, luw, wzchen}@microsoft.com
                                           yuanzhil@andrew.cmu.edu
                                           (Version 2)
+
+
+
+
 arXiv:2106.09685v2 [cs.CL] 16 Oct 2021
-
-
-
-
                                                                                        A BSTRACT
                                                    An important paradigm of natural language processing consists of large-scale pre-
                                                    training on general domain data and adaptation to particular tasks or domains. As
@@ -455,11 +455,11 @@ bution to shift further away from the pre-training data distribution. Separately
 performance of different adaptation approaches in the low-data regime in Section F.3.
                                               WikiSQL                                              MultiNLI-matched
                       0.75                                                       0.92
+
+
+
+
 Validation Accuracy
-
-
-
-
                       0.70                                                       0.90
                                                             Method
                       0.65                                     Fine-Tune         0.88
@@ -623,22 +623,17 @@ in Section H.1.
                                                         (Ar = 64, Ar = 8, i, j)
                             Wq                   Wv                           Wq           Wv
                                                                                                              1.0
+
+
+
+
   8 7 6 5 4 3 2 1
-
-
-
-
                                                                                                              0.8
                                                                                                              0.6
 i
-
-
-
-
                                                                                                              0.4
                                                                                                              0.2
                                                                                                              0.0
-                                                                 1 2 3 4 5 6 7 8   1 2 3 4 5 6 7 8
               1
               6
              12
@@ -648,12 +643,14 @@ i
              35
              40
              46
-             52
+             52                                                  1 2 3 4 5 6 7 8   1 2 3 4 5 6 7 8
+                                                                              j            j
              58
               1
               6
              12
              18
+                            j                    j
              23
              29
              35
@@ -661,11 +658,6 @@ i
              46
              52
              58
-
-
-
-
-                            j                    j                            j            j
 
 Figure 3: Subspace similarity between column vectors of Ar=8 and Ar=64 for both ∆Wq and ∆Wv .
 The third and the fourth figures zoom in on the lower-left triangle in the first two figures. The top
@@ -706,9 +698,7 @@ A for our experiments.
          8                                                                                   0.5
         16                                                                                   0.4
         24                                                                                   0.3
-        32
-    i
-
+    i   32
         40                                                                                   0.2
         48                                                                                   0.1
         56
@@ -721,12 +711,7 @@ A for our experiments.
          25
          30
          34
-         39
-         44
-         49
-         54
-         59
-                                   1
+         39                        1
                                    5
                                   10
                                   15
@@ -734,12 +719,7 @@ A for our experiments.
                                   25
                                   30
                                   34
-                                  39
-                                  44
-                                  49
-                                  54
-                                  59
-                                                                       1
+                                  39                                   1
                                                                        5
                                                                       10
                                                                       15
@@ -748,11 +728,18 @@ A for our experiments.
                                                                       30
                                                                       34
                                                                       39
-                                                                      44
+                      j                             j                           j
+         44
+         49
+         54
+         59                       44
+                                  49
+                                  54
+                                  59                                  44
                                                                       49
                                                                       54
                                                                       59
-                      j                             j                           j
+
 Figure 4: Left and Middle: Normalized subspace similarity between the column vectors of Ar=64
 from two random seeds, for both ∆Wq and ∆Wv in the 48-th layer. Right: the same heat-map
 between the column vectors of two random Gaussian matrices. See Section H.1 for other layers.
@@ -1038,47 +1025,25 @@ for more details on the designs. We plot the slow-down in percentage compared to
 baseline in Figure 5.
                              Seq Len = 128                   Seq Len = 256                   Seq Len = 512
                0
+
+
+
         AdapterH r
                10
-
-
-
-
                                                                                                                      35
                100
-
-
-
-
                                                                                                                      30
-                                                                                                                     25
-               250
-
-
-
-
+               250                                                                                                   25
                                                                                                                      20
-                                                                                                                     15
-               0
-
-
-
-
+               0                                                                                                     15
                                                                                                                      10
+
         AdapterL r
                10
-
-
-
-
                                                                                                                      5
-                                                                                                                     0
-               100
+               100                                                                                                   0
+
                250
-
-
-
-
                      1   2      4    8     16   32   1   2      4     8    16   32   1   2      4      8   16   32
                               Batch Size                      Batch Size                      Batch Size
 Figure 5: Percentage slow-down of inference latency compared to the no-adapter (r = 0) baseline.
@@ -1525,47 +1490,41 @@ directions, in order for the model adaptation to work well?
                                                      (Ar = 8, Ar = 64, i, j)
                                Wq               Wv                             Wq         Wv
 
+
+
+
       8 7 6 5 4 3 2 1
 Layer 1
    i
+
+
+
+
       8 7 6 5 4 3 2 1
-Layer 32
-
-
-
-
-                                                                                                      1.0
+Layer 32                                                                                              1.0
    i
-
-
-
-
                                                                                                       0.8
 
                                                                                                       0.6
+
+
+
+
       8 7 6 5 4 3 2 1
-
-
-
-
                                                                                                       0.4
 Layer 64
-   i
-
-
-
-
-                                                                                                      0.2
+   i                                                                                                  0.2
 
                                                                                                       0.0
+
+
+
+
       8 7 6 5 4 3 2 1
 Layer 96
    i
 
 
-
-
-                                                               1 2 3 4 5 6 7 8      1 2 3 4 5 6 7 8
                   1
                   6
                  12
@@ -1575,12 +1534,14 @@ Layer 96
                  35
                  40
                  46
-                 52
+                 52                                            1 2 3 4 5 6 7 8      1 2 3 4 5 6 7 8
+                                                                               j           j
                  58
                   1
                   6
                  12
                  18
+                               j                j
                  23
                  29
                  35
@@ -1588,11 +1549,6 @@ Layer 96
                  46
                  52
                  58
-
-
-
-
-                               j                j                              j           j
 
  Figure 6: Normalized subspace similarity between the column vectors of Ar=8 and Ar=64 for both
  ∆Wq and ∆Wv from the 1st, 32nd, 64th, and 96th layers in a 96-layer Transformer.
@@ -1629,18 +1585,9 @@ Layer 96
            13
            19                                                                                                               0.8
            25
-
-
-
-
                                                                 Layer 32
-Layer 1
-
-           31                                                                                                               0.7
-           37
-   i
-
-
+Layer 1    31                                                                                                               0.7
+   i       37
            43                                                                                                               0.6
            49
            55                                                                                                               0.5
@@ -1652,18 +1599,9 @@ Layer 1
            19                                                                                                               0.2
            25
 Layer 64
-
-
-
-
                                                                 Layer 96
            31                                                                                                               0.1
-           37
-   i
-
-
-
-
+   i       37
            43                                                                                                               0.0
            49
            55
@@ -1676,13 +1614,7 @@ Layer 64
             26
             31
             36
-            41
-            46
-            51
-            56
-            61
-
-                                       1
+            41                         1
                                        6
                                       11
                                       16
@@ -1690,13 +1622,7 @@ Layer 64
                                       26
                                       31
                                       36
-                                      41
-                                      46
-                                      51
-                                      56
-                                      61
-
-                                                                        1
+                                      41                                1
                                                                         6
                                                                        11
                                                                        16
@@ -1704,13 +1630,7 @@ Layer 64
                                                                        26
                                                                        31
                                                                        36
-                                                                       41
-                                                                       46
-                                                                       51
-                                                                       56
-                                                                       61
-
-                                                                                                       1
+                                                                       41                              1
                                                                                                        6
                                                                                                       11
                                                                                                       16
@@ -1719,11 +1639,21 @@ Layer 64
                                                                                                       31
                                                                                                       36
                                                                                                       41
-                                                                                                      46
+                    j                            j                                     j                          j
+            46
+            51
+            56
+            61                        46
+                                      51
+                                      56
+                                      61                               46
+                                                                       51
+                                                                       56
+                                                                       61                             46
                                                                                                       51
                                                                                                       56
                                                                                                       61
-                    j                            j                                     j                          j
+
 
  Figure 7: Normalized subspace similarity between the column vectors of Ar=64 from two randomly
  seeded runs, for both ∆Wq and ∆Wv from the 1st, 32nd, 64th, and 96th layers in a 96-layer Trans-
@@ -1754,12 +1684,7 @@ Layer 64
        555                                                                                                                0.200
        658                                                                                                                0.175
        762
-       865                                                                                                                0.150
-i
-
-
-
-
+i      865                                                                                                                0.150
        969                                                                                                                0.125
       1072                                                                                                                0.100
       1176

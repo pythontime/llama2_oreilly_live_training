@@ -20,9 +20,9 @@
 <textarea id="source">
     class: center, middle
     
-    # Getting Started with Llama3
+    # Getting Started with Local Models (Gemma 4, Llama, and More)
     ## Lucas Soares
-    ### 10-03-2025
+    ### 05-12-2026
     
     ---
     # Methodology Notes
@@ -102,79 +102,67 @@
     <img src="../notebooks/assets-resources/llama3-intro.png" width="90%">
 
     ---
-    # Llama3 Releases
-    
-    - Meta Released Llama 3 in April of 2024
+    # Open Models: How We Got Here
 
-    - Llama 3.1 was released in July of 2024
-
-    - Llama 3.2 was released in September of 2024
-
-    - Llama 3.3 was released in December of 2024
-
-    ---
-
-    # Llama 3 Series
-
-    - Open source with a Commercial license
+    | Date | Model | Why It Mattered |
+    |------|-------|-----------------|
+    | Apr 2024 | Llama 3 | Open weights with a commercial license |
+    | Dec 2024 | Llama 3.3 70B | Best open coding model of its generation |
+    | Jan 2025 | DeepSeek-R1 | Frontier-level reasoning, MIT license |
+    | Apr 2025 | Llama 4 / Qwen 3 | MoE architectures go mainstream |
+    | **Apr 2026** | **Gemma 4** | **All compute tiers · multimodal · Apache 2.0** |
 
     --
 
-    - The latest and greatest: Llama3.3
-
-    <img src="../notebooks/assets-resources/llama33-params.png" style="width: 100%;">
-
-    <p style="font-size: 14px; margin-top: 200px; margin-left: 0px">
-      <a href='https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct'>Hugging Face - Llama 3.3 70B Instruct</a>
-    </p>
+    → Gemma 4 is the **course default** from this session forward.
 
     ---
-    # Llama 3.3 Evaluation Results
+    # The 2026 Local Model Lineup
 
-    <img src="../notebooks/assets-resources/llama33-evals.png" style="width: 70%;">
+    | Model | RAM / VRAM | Best For | License |
+    |-------|-----------|----------|---------|
+    | **Gemma 4 26B (MoE)** | 8 GB VRAM | General + multimodal | Apache 2.0 |
+    | **Gemma 4 31B (dense)** | 20 GB VRAM | Best open general model | Apache 2.0 |
+    | **Qwen 3.6 27B** | 17 GB VRAM | Coding + agentic | Apache 2.0 |
+    | **Llama 3.3 70B** | 43 GB VRAM | Coding, instruction | Llama Community |
+    | **DeepSeek-R1 32B** | 20 GB VRAM | Math + chain-of-thought | MIT |
+    | **Phi-4 14B** | 9 GB VRAM | Reasoning, STEM, small GPU | MIT |
+    | **Qwen3 4B** | CPU only | General, fast, multilingual | Apache 2.0 |
 
-    <p style="font-size: 14px; margin-top: 0px; margin-left: 0px">
-      <a href='https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct'>Hugging Face - Llama 3.3 70B Instruct</a>
-    </p>
-
-    ---
-    # Llama 3.3 Evaluation Results
-
-    <img src="../notebooks/assets-resources/llama33-evals2.png" style="width: 90%;">
-
-    <p style="font-size: 14px; margin-top: 0px; margin-left: 0px">
-      <a href='https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct'>Hugging Face - Llama 3.3 70B Instruct</a>
+    <p style="font-size: 14px; margin-top: 20px;">
+      Source: Artificial Analysis Intelligence Index + Ollama library download counts, May 2026
     </p>
 
     ---
 
-    # Llama 3.3 Evaluation Results
+    # Why Gemma 4 is the New Default for This Course
 
-    <img src="../notebooks/assets-resources/llama33-evals3.png" style="width: 90%;">
+    --
 
-    <p style="font-size: 14px; margin-top: 0px; margin-left: 0px">
-      <a href='https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct'>Hugging Face - Llama 3.3 70B Instruct</a>
-    </p>
+    - **All compute tiers** — E2B and E4B run CPU-only; 26B MoE fits 8 GB VRAM; 31B dense for prosumer GPUs
 
-    ---
+    --
 
-    # Llama 3.3 Evaluation Results
+    - **Multimodal by default** — image and audio input across all Gemma 4 variants, no separate model needed
 
-    <img src="../notebooks/assets-resources/llama33-evals4.png" style="width: 90%;">
+    --
 
-    <p style="font-size: 14px; margin-top: 0px; margin-left: 0px">
-      <a href='https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct'>Hugging Face - Llama 3.3 70B Instruct</a>
-    </p>
+    - **Clean commercial license** — Apache 2.0; no MAU caps, no EU restrictions, no license anxiety
 
-    ---
+    --
 
-    # Llama 3.3 Evaluation Results
+    - **Top benchmark quality** — Gemma 4 31B ranks #3 among all open-weight models on Chatbot Arena
 
-    <img src="../notebooks/assets-resources/llama33-evals5.png" style="width: 90%;">
+    --
 
-    <p style="font-size: 14px; margin-top: 0px; margin-left: 0px">
-      <a href='https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct'>Hugging Face - Llama 3.3 70B Instruct</a>
-    </p>
+    - **Active development** — Google iterating fast; first-class Ollama integration
+
+    --
+
+    ```bash
+    ollama pull gemma4:26b   # consumer GPU (8 GB VRAM)
+    ollama pull gemma4:e4b   # CPU-only students
+    ```
 
     ---
     class: center, middle
@@ -208,33 +196,33 @@
 
     ---
 
-    # Query Your Docs Locally with Llama 3
+    # Query Your Docs Locally with Local LLMs
 
     - Need for LLMs with access to context-relevant data.
 
-    <img src="../notebooks/assets-resources/private-qa-llama2.png" width="50%" style="margin-left: 30pt;">
+    <img src="../notebooks/assets-resources/private-qa-gemma4.png" width="70%" style="margin-left: 30pt;">
 
     ---
-    # Query Your Docs Locally with Llama 3
+    # Query Your Docs Locally with Local LLMs
 
     - Privacy concern with closed source LLMs.
 
-    <img src="../notebooks/assets-resources/llama2-rag-intro.png" width="50%" style="margin-left: 30pt;">
-    
-    ---
-    # Query Your Docs Locall with Llama 3 
-    
-    - Solution? Local LLMs! (like Llama 3!)
-
-    <img src="../notebooks/assets-resources/llama2-rag-limitations.png" width="50%" style="margin-left: 30pt;">
+    <img src="../notebooks/assets-resources/cloud-llm-privacy-risk.png" width="70%" style="margin-left: 30pt;">
 
     ---
-    # RAG with Llama 3
+    # Query Your Docs Locally with Local LLMs
+
+    - Solution? Local LLMs! (like Gemma 4!)
+
+    <img src="../notebooks/assets-resources/local-llm-solution-gemma4.png" width="70%" style="margin-left: 30pt;">
+
+    ---
+    # RAG with Gemma 4
     - RAG - Retrieval Augmented Generation
     <img src="../notebooks/assets-resources/llama2-rag-what-why.png" width="80%">
 
     ---
-    # RAG with Llama 3
+    # RAG with Gemma 4
 
     <img src="../notebooks/assets-resources/llama2-embeddings-content.png" width="80%">
     
@@ -289,7 +277,7 @@
     
     <h1>
     <span style="background-color: lightgreen">
-      Notebook Demo - Local RAG with Llama 3
+      Notebook Demo - Local RAG with Gemma 4
     </span>
     </h1>
     
@@ -299,46 +287,121 @@
     # Q&A / Break
     
     ---
-    # Local Agents with Llama 3
+    # Local Agents in 2026
 
     --
-      
-    <img src="../notebooks/assets-resources/agent-loop.png" width="1500">
+
+    **What is a local agent?**
+
+    --
+
+    - An **LLM** that receives observations and decides what to do next
+
+    --
+
+    - A **tool loop** — the model calls functions (search, file ops, APIs, code execution)
+
+    --
+
+    - **Memory** — short-term (context window) + long-term (vector store / notes)
+
+    --
+
+    <img src="../notebooks/assets-resources/agent-loop.png" width="90%">
 
     <p class="footnote">
-        <a href='https://blog.langchain.dev/openais-bet-on-a-cognitive-architecture/'> Explanation of the agent loop in cognitive architectures. </a>
+        <a href='https://blog.langchain.dev/openais-bet-on-a-cognitive-architecture/'>Explanation of the agent loop in cognitive architectures.</a>
     </p>
 
     ---
 
-    # Practical Use Case: Private Docs Chatbot
+    # Small Language Models for Local Agents
 
     --
 
-    - **Scenario**: An LLM-powered chatbot designed to assist users by retrieving information from private documents.
+    - SLMs (1B–14B) are now strong enough for **narrow, bounded agentic tasks**
 
     --
 
-    - **User Input**: User asks about specific details from an internal document.
+    - Classification, extraction, tool routing, short summarization → SLMs handle these well
 
     --
 
-    - **LLM Decision**: Determines if the requested information requires search the document repository.
+    - SLMs fail on: multi-step reasoning chains, ambiguous planning, cross-document synthesis
 
     --
 
-    - **Action Taken**: If a search is required, the agent retrieves relevant document sections and provides a concise response based on the content.
+    - **Rule of thumb:** use local SLMs for bounded execution; route to larger/cloud models for open-ended judgment
 
-    <p class="footnote">
-        <a href='https://langchain-ai.github.io/langgraph/concepts/high_level/#deployment'> Practical use case of LLM agents in customer support. </a>
+    --
+
+    - The right architecture: **local model + retrieval + tools + eval set + fallback router**
+
+    <p style="font-size: 14px; margin-top: 20px;">
+        <a href='https://arxiv.org/pdf/2506.02153'>SLMs for Agentic Tasks — arXiv 2506.02153</a>
     </p>
+
+    ---
+
+    # Hermes Agent — Full Local Agent Workbench
+
+    <img src="../notebooks/assets-resources/hermes-agent-ui.png" style="width: 42%; display: block; margin: 0 auto 15px auto;">
+
+    - Auto-detects any model running locally — no manual config per model
+
+    --
+
+    - **Per-model tool parsers** — correct tool calling format for every model automatically
+
+    --
+
+    - **118 bundled skills** — web search, file ops, calendar, notes, code execution
+
+    --
+
+    - Persistent memory across sessions + autonomous multi-step task execution
+
+    <p style="font-size: 14px; margin-top: 15px;">
+        <a href='https://hermes-agent.nousresearch.com/'>hermes-agent.nousresearch.com</a>
+    </p>
+
+    ---
+
+    # Vibe Checking Local Agents
+
+    --
+
+    **The loop:**
+
+    1. Pick a small, realistic task from your use case
+
+    --
+
+    2. Run the agent on it with 2–3 local models
+
+    --
+
+    3. Score each output on 3 axes:
+       - **Completion** — did the agent finish the task goal? (0 = no, 1 = partial, 2 = yes)
+       - **Tool-use correctness** — did it call the right tool with the right arguments?
+       - **Hallucination** — did it stay grounded, or invent facts not in the context?
+
+    --
+
+    4. **Decide**: local vs. frontier
+       - Local wins → use it; set up routing rule
+       - Local fails → identify which axis and route those cases to a stronger model
+
+    --
+
+    > Build a 25-example vibe-check dataset. Score 2–3 models. Pick on evidence, not intuition.
 
     ---
     class: center, middle
 
       <h1>
       <span style="background-color: lightgreen">
-        Notebook Demo - Tool Calling/Structured Outputs and local agents with Llama 3
+        Notebook Demo - Tool Calling/Structured Outputs and Local Agents
       </span>
       </h1>
     ---
@@ -349,19 +412,19 @@
     ---
     class: center, middle
 
-    # Fine Tunning Llama 3
+    # Fine Tuning Gemma 4
 
     ---
     class: center, middle
 
     <h1>
     <span style="background-color: lightgreen">
-      Whiteboard - Fine Tunning Llama 3: what, when, why and beyond
+      Whiteboard - Fine Tuning Gemma 4: what, when, why and beyond
     </span>
     </h1>
 
     ---
-    # Fine Tunning Llama 3
+    # Fine Tuning Gemma 4
 
     - <span style="color: red">What is fine-tuning?</span>
 
@@ -399,7 +462,7 @@
 
     <h1>
     <span style="background-color: lightgreen">
-      Notebook Demo - Fine-Tuning Llama 3 - Walkthrough
+      Notebook Demo - Fine-Tuning Gemma 4 - Walkthrough
     </span>
     </h1>
 
@@ -413,7 +476,7 @@
 
     <h1>
     <span style="background-color: lightgreen">
-      Notebook Demo - End To End Example with Llama 3
+      Notebook Demo - End To End Example with Gemma 4
     </span>
     </h1>
 
@@ -421,22 +484,31 @@
 
     # References
 
-    1. [Llama 3.3 Model Card](https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_3/)
-    2. [Fine Tuning Video](https://www.youtube.com/watch?v=-hYqt8M9u_M&t=604s)
-    3. [High Quality Structured Report Generation Demo](https://youtu.be/E04rFNtwFcA?si=XM_nfu--7Tx41jvp)
-    4. [Llama Cookbook – Finetuning](https://github.com/meta-llama/llama-cookbook/tree/main/getting-started/finetuning)
-    5. [Llama Recipes](https://github.com/meta-llama/llama-recipes)
-    6. [Generating Synthetic Data](https://eugeneyan.com/writing/synthetic/)
-    7. [Llama Cookbook – End-to-End Use Cases](https://github.com/meta-llama/llama-cookbook/tree/main/end-to-end-use-cases)
-    8. [Structured Outputs with Ollama](https://ollama.com/blog/structured-outputs)
-    9. [Chunk Size Explanation](https://vectify.ai/blog/LargeDocumentSummarization?utm_source=substack&utm_medium=email)
-    10. [Embeddings + Llama by Simon Willison](https://simonwillison.net/2023/Oct/23/embeddings/#answering-questions-with-retrieval-augmented-generation)
-    11. [Embeddings + Parquet for Small Projects](https://minimaxir.com/2025/02/embeddings-parquet/)
-    12. [Awesome Local LLMs](https://github.com/vince-lam/awesome-local-llms)
-    13. [LLM-Driven Data Engineering](https://github.com/DataExpert-io/llm-driven-data-engineering)
-    14. [Text Chunking in RAG](https://www.youtube.com/watch?v=GYj4Ay7SdWw)
-    15. [Llama Resources – AI.Meta](https://ai.meta.com/llama/#resources)
-    16. [Llama 3 Paper (arXiv)](https://arxiv.org/pdf/2408.13296)
+    **Gemma 4**
+    1. [Gemma 4 Model Card – Google DeepMind](https://ai.google.dev/gemma/docs/gemma4)
+    2. [Gemma 4 Fine-Tuning with Keras / JAX](https://ai.google.dev/gemma/docs/lora_tuning)
+    3. [Gemma 4 on Ollama](https://ollama.com/library/gemma4)
+
+    **RAG & Embeddings**
+    4. [Structured Outputs with Ollama](https://ollama.com/blog/structured-outputs)
+    5. [Chunk Size Explanation](https://vectify.ai/blog/LargeDocumentSummarization?utm_source=substack&utm_medium=email)
+    6. [Embeddings + Parquet for Small Projects](https://minimaxir.com/2025/02/embeddings-parquet/)
+    7. [Text Chunking in RAG](https://www.youtube.com/watch?v=GYj4Ay7SdWw)
+
+    **Fine-Tuning**
+    8. [Fine Tuning Video](https://www.youtube.com/watch?v=-hYqt8M9u_M&t=604s)
+    9. [Generating Synthetic Data](https://eugeneyan.com/writing/synthetic/)
+    10. [High Quality Structured Report Generation Demo](https://youtu.be/E04rFNtwFcA?si=XM_nfu--7Tx41jvp)
+
+    **Local LLMs & Agents**
+    11. [Awesome Local LLMs](https://github.com/vince-lam/awesome-local-llms)
+    12. [LLM-Driven Data Engineering](https://github.com/DataExpert-io/llm-driven-data-engineering)
+
+    **Supplementary (Llama / historical)**
+    13. [Llama 3.3 Model Card](https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_3/)
+    14. [Llama Cookbook – Finetuning](https://github.com/meta-llama/llama-cookbook/tree/main/getting-started/finetuning)
+    15. [Llama 3 Paper (arXiv)](https://arxiv.org/pdf/2408.13296)
+    16. [Embeddings + Llama by Simon Willison](https://simonwillison.net/2023/Oct/23/embeddings/#answering-questions-with-retrieval-augmented-generation)
 
     ---
 

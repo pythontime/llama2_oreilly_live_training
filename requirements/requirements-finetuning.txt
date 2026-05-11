@@ -1,0 +1,10 @@
+# Fine-tuning dependencies — notebooks 6.x only
+# Install with: pip install -r requirements/requirements-finetuning.txt
+#
+# WARNING: torch alone is ~530 MB. Only install if you plan to run the
+# fine-tuning notebooks.
+
+transformers
+bitsandbytes
+accelerate
+smolagents

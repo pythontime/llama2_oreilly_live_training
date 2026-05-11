@@ -14,7 +14,6 @@ The main requirements file includes packages that have Unix-only dependencies. T
 
 | Package | Issue | Solution |
 |---------|-------|----------|
-| `gpt4all==2.8.0` | No Windows wheels | Use `gpt4all>=2.8.2` |
 | `uvloop` | Unix-only (no Windows support) | Use `winloop` as alternative |
 | `bitsandbytes` | Limited Windows support | Optional - requires proper CUDA setup |
 
@@ -107,10 +106,10 @@ python -m ipykernel install --user --name=oreilly-llama3
 
 1. Download Ollama from [ollama.com/download/windows](https://ollama.com/download/windows)
 2. Run the installer
-3. After installation, pull the Llama 3 model:
+3. After installation, pull the Gemma 4 model:
 
    ```powershell
-   ollama pull llama3
+   ollama pull gemma4
    ```
 
 ## Troubleshooting
@@ -137,14 +136,6 @@ If you see errors about `uvloop`, it's Unix-only. The Windows requirements use `
 ```powershell
 pip uninstall uvloop
 pip install winloop
-```
-
-### GPT4All Installation
-
-Ensure you're using version 2.8.2 or later:
-
-```powershell
-pip install gpt4all>=2.8.2
 ```
 
 ## Notebooks That May Need Adjustment on Windows

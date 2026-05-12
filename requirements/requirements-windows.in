@@ -11,6 +11,7 @@ openai
 llama-index
 llama-index-llms-ollama
 llama-index-embeddings-huggingface
+llama-index-readers-file
 sentence-transformers
 pypdf2
 pypdf

@@ -18,6 +18,7 @@ openai
 llama-index
 llama-index-llms-ollama
 llama-index-embeddings-huggingface
+llama-index-readers-file
 sentence-transformers
 
 # RAG stack (LangChain) — used in 2.0 visualization notebook
